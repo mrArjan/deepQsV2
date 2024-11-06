@@ -1,0 +1,142 @@
+/* style.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .game-container {
+    text-align: center;
+  }
+  
+  label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #343a40;
+    margin-right: 10px;
+  }
+  
+  /* Style for the language dropdown */
+  #languageSelect {
+    padding: 8px 12px;
+    font-size: 1em;
+    font-weight: bold;
+    border: 2px solid #343a40;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #343a40;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  
+  /* Change dropdown color on hover */
+  #languageSelect:hover {
+    background-color: #495057;
+    color: #ffffff;
+  }
+  
+  /* Card and button styles as in previous versions */
+  
+  .card-container {
+    perspective: 1000px;
+    width: 200px;
+    height: 300px;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 10px;
+    z-index: -1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card::after {
+    top: 8px;
+    left: 8px;
+    background-color: #0056b3;
+  }
+  
+  .flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: black;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-front {
+    background-color: #007bff;
+  }
+  
+  .card-back {
+    background-color: #28a745;
+    transform: rotateY(180deg);
+    background-image: repeating-linear-gradient(
+      45deg,
+      #28a745,
+      #28a745 10px,
+      #26a238 10px,
+      #26a238 20px
+    );
+    border: 4px solid #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  button {
+    padding: 10px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #343a40;
+    color: white;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #495057;
+  }
+  
+  
+  
+  
