@@ -7,6 +7,21 @@
   box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Add Webkit prefix for smoother transitions on iOS */
+.card {
+    -webkit-transition: transform 0.8s;
+    transition: transform 0.8s;
+  }
+  
+  .flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
 body {
   display: flex;
   justify-content: center;
