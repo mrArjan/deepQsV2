@@ -1,138 +1,256 @@
-/* style.css */
+/* General Reset and Body Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Game Container */
+.game-container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+h1.game-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+  animation: fadeInTitle 2s ease-in-out;
+  transform: rotate(-5deg);
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg);
   }
-  
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+/* Language Dropdown Styles */
+label {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #343a40;
+  margin-right: 10px;
+}
+
+#languageSelect {
+  padding: 8px 12px;
+  font-size: 1em;
+  font-weight: bold;
+  border: 2px solid #343a40;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #343a40;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#languageSelect:hover {
+  background-color: #495057;
+  color: #ffffff;
+}
+
+/* Card Container and Flip Effect */
+.card-container {
+  perspective: 1000px;
+  width: 200px;
+  height: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 10px;
+  z-index: -1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card::after {
+  top: 8px;
+  left: 8px;
+  background-color: #0056b3;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  color: black;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  background-color: #f3e5f5;
+  border: 2px solid #d1c4e9;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.card-back {
+  background-color: #28a745;
+  transform: rotateY(180deg);
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  border: 4px solid #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Shuffle Button Styling */
+button {
+  padding: 10px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #343a40;
+  color: white;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #495057;
+}
+
+/* Timer Styling */
+.timer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2em;
+  color: #333;
+  display: none;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
   .game-container {
-    text-align: center;
+    padding: 15px;
+    max-width: 95%;
   }
-  
-  label {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #343a40;
-    margin-right: 10px;
+
+  h1.game-title {
+    font-size: 1.8em;
   }
-  
-  /* Style for the language dropdown */
-  #languageSelect {
-    padding: 8px 12px;
-    font-size: 1em;
-    font-weight: bold;
-    border: 2px solid #343a40;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: #343a40;
-    outline: none;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
-  }
-  
-  /* Change dropdown color on hover */
-  #languageSelect:hover {
-    background-color: #495057;
-    color: #ffffff;
-  }
-  
-  /* Card and button styles as in previous versions */
-  
+
   .card-container {
-    perspective: 1000px;
+    width: 150px;
+    height: 220px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+
+  .timer {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .game-container {
+    padding: 20px;
+    max-width: 85%;
+  }
+
+  h1.game-title {
+    font-size: 2em;
+  }
+
+  .card-container {
+    width: 180px;
+    height: 260px;
+  }
+
+  button {
+    font-size: 1.05em;
+    padding: 9px 18px;
+  }
+
+  .timer {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 1025px) {
+  .game-container {
+    padding: 30px;
+    max-width: 600px;
+  }
+
+  h1.game-title {
+    font-size: 2.5em;
+  }
+
+  .card-container {
     width: 200px;
     height: 300px;
-    margin: 20px auto;
-    position: relative;
   }
-  
-  .card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .card::before,
-  .card::after {
-    content: "";
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 100%;
-    height: 100%;
-    background-color: #007bff;
-    border-radius: 10px;
-    z-index: -1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card::after {
-    top: 8px;
-    left: 8px;
-    background-color: #0056b3;
-  }
-  
-  .flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border: 2px solid white;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    color: black;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-front {
-    background-color: #f3e5f5;
-    border: 2px solid #d1c4e9;
-    background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-  }
-  
-  .card-back {
-    background-color: #28a745;
-    transform: rotateY(180deg);
-    background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-    border: 4px solid #ffffff;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 10px;
-  }
-  
+
   button {
-    padding: 10px 30px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #343a40;
-    color: white;
-    transition: background-color 0.3s;
-    margin-top: 15px;
+    font-size: 1.1em;
+    padding: 10px 20px;
   }
-  
-  button:hover {
-    background-color: #495057;
+
+  .timer {
+    font-size: 1.2em;
   }
-  
-  
-  
-  
+}
