@@ -102,19 +102,15 @@ body {
   }
   
   .card-front {
-    background-color: #007bff;
+    background-color: #f3e5f5;
+    border: 2px solid #d1c4e9;
+    background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
   }
   
   .card-back {
     background-color: #28a745;
     transform: rotateY(180deg);
-    background-image: repeating-linear-gradient(
-      45deg,
-      #28a745,
-      #28a745 10px,
-      #26a238 10px,
-      #26a238 20px
-    );
+    background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
     border: 4px solid #ffffff;
     padding: 10px;
     box-sizing: border-box;
