@@ -13,14 +13,37 @@ html {
 
 /* Add Webkit prefix for smoother transitions on iOS */
 .card {
-    -webkit-transition: transform 0.8s;
-    transition: transform 0.8s;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Adds bounce effect */
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Shuffle Animation */
+@keyframes shuffle {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
   }
-  
-  .flipped {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  25% {
+    transform: translateX(-10px) translateY(-10px) rotate(-5deg);
   }
+  50% {
+    transform: translateX(10px) translateY(10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) translateY(-5px) rotate(-3deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+.shuffle-active .card {
+  animation: shuffle 0.6s ease-in-out;
+}
 
 body {
   display: flex;
@@ -132,7 +155,8 @@ label {
 }
 
 .flipped {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scale(1.05);
+
 }
 
 .card-face {
@@ -155,6 +179,11 @@ label {
   border: 2px solid #d1c4e9;
   background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
 }
+
+.card-front, .card-back {
+  transition: background-color 0.5s ease;
+}
+
 
 .card-back {
   background-color: #28a745;
@@ -268,4 +297,51 @@ button:hover {
   .timer {
     font-size: 1.2em;
   }
+}
+
+
+/* title */
+
+.animated-title {
+  font-size: 3vw; /* Responsive font size */
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  animation: titleAnimation 3s infinite;
+  color: #ff007a;
+  margin-bottom: 30px;
+}
+
+/* Animation for color and scale */
+@keyframes titleAnimation {
+  0% { color: #ff007a; transform: scale(1); }
+  50% { color: #00d4ff; transform: scale(1.2); }
+  100% { color: #ff007a; transform: scale(1); }
+}
+
+/* Shuffle Button Animation */
+@keyframes shuffle {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-10px) translateY(-10px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(10px) translateY(10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) translateY(-5px) rotate(-3deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+.shuffle-active {
+  animation: shuffle 1s ease-in-out infinite;
+}
+
+.shuffle-active .card {
+  animation: shuffle 0.6s ease-in-out;
 }
