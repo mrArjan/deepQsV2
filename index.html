@@ -3,32 +3,36 @@
   <head>
     <title>Reflective Card Game</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="game-container">
       <div class="animated-title">DEEP Qs</div>
-      <label for="languageSelect">Choose Language:</label>
-      <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="tl">Tagalog</option>
-      </select>
+       <!-- Language selection container -->
+  <div class="language-container">
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="tl">Tagalog</option>
+    </select>
+    <label for="languageSelect" class="engraved">Choose Language:</label>
+  </div>
       <div class="card-container" id="cardContainer">
+
         <div class="card">
           <div class="card-face card-front">
-            <span>Click to Reveal</span>
+            <span>Tap to Reveal</span>
+            <div class="watermark watermark-left">DeepQs</div> <!-- Upper-left watermark -->
           </div>
           <div class="card-face card-back">
             <span id="questionText"></span>
           </div>
         </div>
+
       </div>
       <button id="shuffleButton">Shuffle</button>
     </div>

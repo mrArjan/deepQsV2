@@ -7,9 +7,14 @@
   box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-  }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;  /* Prevent scrolling */
+}
 
 /* Add Webkit prefix for smoother transitions on iOS */
 .card {
@@ -45,6 +50,7 @@ html {
   animation: shuffle 0.6s ease-in-out;
 }
 
+/* Page Background with Galaxy Design */
 body {
   display: flex;
   justify-content: center;
@@ -52,30 +58,125 @@ body {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background: linear-gradient(135deg, #001f3d, #003a63); /* Dark gradient for a galaxy feel */
+  overflow: hidden;
+  position: relative;
 }
 
-/* Game Container */
+/* Shooting star styles */
+.shooting-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7);
+  animation: shootingStarAnimation 3s linear forwards;
+}
+
+/* Keyframes for shooting star movement */
+@keyframes shootingStarAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--endX), var(--endY)) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Trail dot styles */
+.trail-dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: trailFade 1s linear forwards;
+}
+
+/* Keyframes for trail fade effect */
+@keyframes trailFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Floating Stars Animation */
+.star {
+  position: absolute; /* Position stars absolutely in the background */
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.8; /* More visible */
+  pointer-events: none;
+  z-index: -1; /* Ensure stars stay behind the content */
+  animation: shimmer 2s infinite, moveStars linear infinite;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+/* Animation for the stars' shimmer effect */
+@keyframes shimmer {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Random Star Animation with Floating Effect */
+@keyframes floatStars {
+  0% {
+    transform: translateX(0px) translateY(0px); /* Start position */
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh); /* End position (across the full screen) */
+  }
+}
+
+/* Animation for moving stars in random directions */
+@keyframes moveStars {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--xMovement), var(--yMovement));
+  }
+}
+
+/* Game Container Styles */
 .game-container {
+  position: relative;
+  z-index: 1; /* Ensure the game container stays in front of the stars */
   text-align: center;
   max-width: 600px;
   width: 100%;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.575); /* White with 80% opacity */
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 2;
 }
 
-/* Title Styling */
-h1.game-title {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #333;
-  text-transform: uppercase;
-  animation: fadeInTitle 2s ease-in-out;
-  transform: rotate(-5deg);
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(135deg, #001f3d, #003a63); /* Keep the dark galaxy gradient */
+  }
 }
+
 
 @keyframes fadeInTitle {
   0% {
@@ -88,30 +189,50 @@ h1.game-title {
   }
 }
 
-/* Language Dropdown Styles */
-label {
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #343a40;
-  margin-right: 10px;
+/* Center the language selector and style the label */
+.language-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+  margin-top: 10px; /* Add some margin for spacing */
 }
 
 #languageSelect {
-  padding: 8px 12px;
-  font-size: 1em;
-  font-weight: bold;
-  border: 2px solid #343a40;
+  width: 160px;
+  padding: 12px;
+  font-size: 14px;
+  border: 2px solid #777; /* Darker border for a more recessed look */
   border-radius: 5px;
-  background-color: #ffffff;
-  color: #343a40;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: #e0e0e0; /* Lighter gray background for a depth effect */
+  color: #333;
+  text-align: center;
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3), inset -1px -1px 5px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
+/* Focused state for the dropdown to enhance engraving effect */
+#languageSelect:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.4), inset -2px -2px 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Engraved effect for the label */
+label {
+  background-color: #666666;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgb(245 245 245 / 52%);
+}
+
+
+/* Optional: Hover effect to make it slightly interactive */
 #languageSelect:hover {
-  background-color: #495057;
-  color: #ffffff;
+  box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.4), inset -1px -1px 6px rgba(255, 255, 255, 0.6);
+  background-color: #d0d0d0; /* Slight change in background color on hover */
 }
 
 /* Card Container and Flip Effect */
@@ -134,18 +255,16 @@ label {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.card::before,
-.card::after {
-  content: "";
+.card-front,
+.card-back {
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #007bff;
+  backface-visibility: hidden;
   border-radius: 10px;
-  z-index: -1;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .card::after {
@@ -169,9 +288,13 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1em;
   color: black;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard */
 }
 
 .card-front {
@@ -180,8 +303,46 @@ label {
   background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
+.card-front span{
+  font-size: 0.9em; /* Smaller font size */
+  position: absolute;
+  bottom: 10px; /* Position at the bottom of the card */
+  width: 100%;
+  text-align: center; /* Center text horizontally */
+  color: #333;
+  padding: 5px 0;
+  user-select: none;
+}
+
 .card-front, .card-back {
   transition: background-color 0.5s ease;
+}
+
+/* Watermark styling */
+.watermark {
+  position: absolute;
+  font-size: 40px;
+  font-family: 'Pacifico', sans-serif;
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  transform: rotate(-45deg);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* Top-left watermark */
+.watermark-top-left {
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%) rotate(-45deg);
+}
+
+/* Bottom-right watermark */
+.watermark-bottom-right {
+  bottom: 10%;
+  right: 10%;
+  transform: translate(10%, 10%) rotate(-45deg);
 }
 
 
@@ -206,6 +367,7 @@ button {
   color: white;
   transition: background-color 0.3s;
   margin-top: 15px;
+  user-select: none;
 }
 
 button:hover {
@@ -300,43 +462,81 @@ button:hover {
 }
 
 
-/* title */
-
+/* Title Styling */
 .animated-title {
-  font-size: 3vw; /* Responsive font size */
+  font-size: 5vw; /* Responsive font size */
   font-weight: bold;
   text-align: center;
-  font-family: Arial, sans-serif;
-  animation: titleAnimation 3s infinite;
-  color: #ff007a;
-  margin-bottom: 30px;
+  font-family: 'Pacifico', cursive;
+  color: #333;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-bottom: 40px;
+  animation: floatTitle 3s ease-in-out infinite, glowTitle 2.5s ease-in-out infinite;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard */
 }
 
-/* Animation for color and scale */
-@keyframes titleAnimation {
-  0% { color: #ff007a; transform: scale(1); }
-  50% { color: #00d4ff; transform: scale(1.2); }
-  100% { color: #ff007a; transform: scale(1); }
-}
-
-/* Shuffle Button Animation */
-@keyframes shuffle {
-  0% {
-    transform: translateX(0) translateY(0) rotate(0deg);
+/* Increase title size on smaller screens */
+@media (max-width: 600px) {
+  .animated-title {
+    font-size: 12vw; /* Larger font size for mobile devices */
   }
-  25% {
-    transform: translateX(-10px) translateY(-10px) rotate(-5deg);
+}
+
+/* Subtle Floating Animation */
+@keyframes floatTitle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateX(10px) translateY(10px) rotate(5deg);
-  }
-  75% {
-    transform: translateX(-5px) translateY(-5px) rotate(-3deg);
-  }
-  100% {
-    transform: translateX(0) translateY(0) rotate(0deg);
+    transform: translateY(-5px) scale(1.05);
   }
 }
+
+/* Gentle Glow Pulse Effect */
+@keyframes glowTitle {
+  0%, 100% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0);
+  }
+  50% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Basic Shuffle */
+@keyframes shuffle {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-10px) rotate(-3deg); }
+  50% { transform: translateX(10px) rotate(3deg); }
+  75% { transform: translateX(-5px) rotate(-1.5deg); }
+}
+
+/* Tilted Shuffle */
+@keyframes shuffleTilt {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0); }
+  25% { transform: translateX(-5px) translateY(-5px) rotate(-8deg); }
+  50% { transform: translateX(5px) translateY(5px) rotate(8deg); }
+  75% { transform: translateX(-3px) translateY(-3px) rotate(-4deg); }
+}
+
+/* Wiggle Shuffle */
+@keyframes shuffleWiggle {
+  0%, 100% { transform: scale(1) rotate(0); }
+  20% { transform: scale(1.05) rotate(2deg); }
+  40% { transform: scale(0.95) rotate(-2deg); }
+  60% { transform: scale(1.05) rotate(2deg); }
+  80% { transform: scale(0.95) rotate(-2deg); }
+}
+
+/* Add classes for each animation */
+.shuffle { animation: shuffle 0.8s ease-in-out; }
+.shuffleTilt { animation: shuffleTilt 0.8s ease-in-out; }
+.shuffleWiggle { animation: shuffleWiggle 0.8s ease-in-out; }
+
 
 .shuffle-active {
   animation: shuffle 1s ease-in-out infinite;
