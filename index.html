@@ -2,42 +2,64 @@
 <html>
   <head>
     <title>Reflective Card Game</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <link rel="stylesheet" type="text/css" href="style.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="version-watermark">ver 2.0.2025</div>
     <div class="game-container">
       <div class="animated-title">DEEP Qs</div>
-       <!-- Language selection container -->
-  <div class="language-container">
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="tl">Tagalog</option>
-    </select>
-    <label for="languageSelect" class="engraved">Choose Language:</label>
-  </div>
-      <div class="card-container" id="cardContainer">
+      <!-- Language selection container -->
+      <div class="language-container">
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="tl">Tagalog</option>
+        </select>
+        <label for="languageSelect" class="engraved">Choose Language:</label>
+      </div>
 
+      <div class="category-container">
+        <label class="engraved">Choose Category:</label>
+        <div class="category-buttons">
+          <button class="cat-btn active" data-category="random">Random</button>
+          <button class="cat-btn" data-category="family">Family</button>
+          <button class="cat-btn" data-category="goals">Goals</button>
+          <button class="cat-btn" data-category="relationship">Love</button>
+        </div>
+      </div>
+
+      <div class="card-container" id="cardContainer">
         <div class="card">
           <div class="card-face card-front">
             <span>Tap to Reveal</span>
-            <div class="watermark watermark-left">DeepQs</div> <!-- Upper-left watermark -->
+            <div class="watermark watermark-left">DeepQs</div>
+            <!-- Upper-left watermark -->
           </div>
           <div class="card-face card-back">
             <span id="questionText"></span>
           </div>
         </div>
-
       </div>
       <button id="shuffleButton">Shuffle</button>
     </div>
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,Promise"></script>
-    <script type="text/javascript" src="questions.js"></script>
+    <script type="text/javascript" src="questions2.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
