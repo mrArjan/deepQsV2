@@ -364,3 +364,29 @@ body {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
+
+/* --- KING'S CUP LINK --- */
+.kings-cup-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  /* Positioned on the left for symmetry */
+
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+
+  /* Subtle Glass Style */
+  color: rgba(255, 255, 255, 0.3);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.kings-cup-link:hover {
+  color: #fff;
+  /* Glows white on hover */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
