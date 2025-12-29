@@ -339,3 +339,28 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+/* --- CREATOR LINK --- */
+.creator-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+
+  /* Subtle by default */
+  color: rgba(255, 255, 255, 0.3);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.creator-link:hover {
+  /* Glows when you touch it */
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
