@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionText = document.getElementById('questionText');
     const languageSelect = document.getElementById('languageSelect');
     const shuffleButton = document.getElementById('shuffleButton');
-    const cardFaceBack = document.querySelector('.card-back');
     const cardContainer = document.querySelector('.card-container');
     const categoryButtons = document.querySelectorAll('.cat-btn');
 
@@ -36,14 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCategory = 'random';
     let currentDeck = [];
     let isFlipped = false;
-    let savedFavorites = JSON.parse(localStorage.getItem('deepQsFavorites')) || [];
+    
+    // SAFARI FIX: Initialize storage safely
+    let savedFavorites = [];
+    try {
+        savedFavorites = JSON.parse(localStorage.getItem('deepQsFavorites')) || [];
+    } catch (e) {
+        console.log("Private browsing mode detected. Saving disabled.");
+    }
 
     let userData = { name: null, gender: null };
     
     // Easter Egg State
     let isHolly = false;
     let hollyCardCount = 0; 
-    const triggerNames = ['holly', 'h', 'ly', 'hol']; 
 
     // --- 1. INTRO & PERSONALIZATION ---
 
@@ -76,13 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); 
             introModal.classList.remove('open');
             
-            // CHECK FOR EASTER EGG
+            // --- EASTER EGG DETECTION ---
             if (userData.name) {
+                // Convert to lowercase to handle HOLLY, holly, Holly, etc.
                 const lowerName = userData.name.toLowerCase();
-                if (triggerNames.includes(lowerName)) {
+                
+                // Logic: If name has 'h' OR is 'ly'
+                if (lowerName.includes('h') || lowerName === 'ly') {
                     isHolly = true;
                     // Show Engraved Name
                     cardNameDisplay.style.display = 'block';
+                    // Capitalize first letter for display
                     cardNameDisplay.textContent = userData.name.charAt(0).toUpperCase() + userData.name.slice(1);
                 }
             }
@@ -128,8 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleCardClick(e) {
+        // Ignore clicks on the heart
         if (e.target.closest('#cardHeart')) return;
 
+        // If card is open, close it
         if (isFlipped) {
             card.classList.remove('flipped');
             isFlipped = false;
@@ -137,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // If deck empty, reshuffle
         if (currentDeck.length === 0) {
             alert(currentLang === 'en' ? "Reshuffling deck!" : "Ihahalo ulit!");
             initDeck();
@@ -157,14 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('flipped');
         isFlipped = true;
 
-        // --- EASTER EGG TRIGGER (UPDATED) ---
+        // --- EASTER EGG TRIGGER ---
         if (isHolly) {
             hollyCardCount++;
             // Trigger after the FIRST card (count === 1)
             if (hollyCardCount === 1) {
                 setTimeout(() => {
                     letterModal.classList.add('open');
-                }, 1500); // 1.5 second delay so she has time to read the first question
+                }, 1500); // 1.5 second delay
             }
         }
     }
@@ -190,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation(); 
         if (!isFlipped) return;
         const currentQ = questionText.textContent;
+        
         if (savedFavorites.includes(currentQ)) {
             savedFavorites = savedFavorites.filter(q => q !== currentQ);
             cardHeart.classList.remove('active');
@@ -197,7 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
             savedFavorites.push(currentQ);
             cardHeart.classList.add('active');
         }
-        localStorage.setItem('deepQsFavorites', JSON.stringify(savedFavorites));
+        
+        // SAFARI FIX: Try/Catch for Private Browsing
+        try {
+            localStorage.setItem('deepQsFavorites', JSON.stringify(savedFavorites));
+        } catch (e) {
+            // Fails silently in private mode
+        }
     }
 
     function renderFavorites() {
@@ -218,7 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.removeFav = function(question) {
         savedFavorites = savedFavorites.filter(q => q !== question);
-        localStorage.setItem('deepQsFavorites', JSON.stringify(savedFavorites));
+        
+        // SAFARI FIX
+        try {
+            localStorage.setItem('deepQsFavorites', JSON.stringify(savedFavorites));
+        } catch (e) {}
+
         renderFavorites();
         if (questionText.textContent === question) cardHeart.classList.remove('active');
     };
