@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 Hello, for this part I just want to thank you for appreciating the letter and for recognizing the effort I put into this project. Once a forgotten pieces of code now has purpose. So dito ko muna ilalagay mga letters ko for you until I can give it to you personally :) or if you decide to meet up someday.<br><br>
                 I have no idea talaga on how to show you my effort or who I am, to be honest it is quite frustrating kasi di ko talaga alam if papadalhan ba kita ng letter or something. Yes I know we're just getting to know each other, but this is a part of who I am that I want to show you. Alam ko na game talaga dapat ito hahahaha nalagyan na ng letters and stuff for you, okay na din at least nakahanap din ako ng way to send a message to you. Ayaw ko kasi mag long message sa chat and I prefer writing the message instead. 
                 <br><br>
+                before ending this letter, I have a question if ever you are reading this. Are you still comfortable talking to me? or does it feel like a requirement to respond to my messages? 
+                <br><br>
                 Ayun lang, enjoy your day! and Thank you ulit for appreciating! 
                 <br><br>
                 - Arjan
