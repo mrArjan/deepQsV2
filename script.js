@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const badge = envelopeIcon.querySelector('.notification-badge');
                 if(badge) badge.textContent = SECRET_LETTERS.length; 
                 
-                alert(`Welcome back, ${userData.name}. Check the envelope.`);
+                alert(`Welcome back, Ms. Holly. Check the envelope please.`);
             } else {
                 alert("Incorrect location.");
             }
@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If multiple, show a list
         const header = document.createElement('h3');
-        header.textContent = "My Letters";
-        header.style.marginBottom = "20px";
+        header.textContent = "Letters to Holly";
+        header.style.marginBottom = "25px";
         burntPaperContent.appendChild(header);
 
         SECRET_LETTERS.forEach((letter, index) => {
