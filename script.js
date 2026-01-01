@@ -44,6 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 - Arjan
             `
         },
+        {
+            title: "12-31-25", 
+            content: `
+                Dear Holly,<br><br>
+                It's 4 hours before new year, after hours of updates and telling you what I'm doing - you finally replied hahaha. Hey just to clarify, I'm not mad or annoyed or what - I understand that you are busy, there's just this feeling of excitement when you reply after hours of being busy. I know I talk a lot and chat a lot. I hope you'll be able to read everything, it's okay if you'll not respond to each message.
+                <br><br>
+                I don't think you've responded to what I said after your long message pa ata, but I hope you can check it out and we can talk a little about that part kasi I feel like we're starting to understand each other. The real purpose of this letter is to let you know that amidst the silence and hours it takes I'll be here.
+                <br><br>
+                Ayun lang muna hahaha I'm cooking pizzas pa and some pizza rolls eh, have to get back to check it out. Just typed this quickly kasi I just feel to write this down, sorry if I misspelled some words ah di ko na kasi checheck hahaha - just a message right out of my mind. 
+                <br><br>
+                Enjoy your New Year's eve, I hope we'll still be talking by 2026. Thank you for showing me your true side and for appreciating my efforts. Happy Birth month na din! I hope I can see you before or after your birthday :) See you soon!
+                <br><br>
+                - Arjan
+            `
+        },
     ];
     // ==========================================
 
