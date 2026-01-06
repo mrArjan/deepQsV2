@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <br><br>
                 Ayun lang, enjoy your day! and Thank you ulit for appreciating! 
                 <br><br>
+                <br><br>
+                ps: I won't add this to the letter collection hehe, too short for that to write :) 
+                <br><br>
+                <br><br>
                 - Arjan
             `
         },
