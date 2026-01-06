@@ -59,6 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 - Arjan
             `
         },
+          {
+            title: "01-06-25", 
+            content: `
+                Dear Holly,<br><br>
+                Hey, how are you? I hope you're doing fine! Just checking in on you, how's your day so far? If ever you'll read this, just message me in our chat. Appreciate you so much! Good luck with your work!
+                <br><br>
+                Just a short one for tonight kasi you're gone again, I don't know if you're okay eh. I hope you are. 
+                <br><br>
+                - Arjan
+            `
+        },
     ];
     // ==========================================
 
