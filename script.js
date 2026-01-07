@@ -7,69 +7,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- YOUR LETTERS ARCHIVE ---
     const SECRET_LETTERS = [
+        // {
+        //     title: "12-29-25 | Letter no. 1", 
+        //     content: `
+        //         Dear Ms. Holly,<br /><br />
+        //     I made this game for everyone, but I secretly made this specific
+        //     part just for you.<br /><br />
+        //     I hope you are having a great day! I hope you're enjoying this game
+        //     - yung kwento kasi neto was like what I told you, ayokong bumili ng
+        //     cards and this was supposed to be used if may get together kami ng
+        //     friends ko sa sem hahaha. It is nice seeing your personality through
+        //     this card game, somehow we're knowing each other little by little.
+        //     <br></br>
+        //     Until now I am enjoing every moment reading your messages, our short kwentuhan and sharing of experience. I know we are both busy and we take time before responding to each other but that's what makes it exciting - we're busy but still eager(?) to reply after a busy moment. 
+        //     <br /><br />
+        //     So far one thing you thaught me is Patience, in this era of fast phase dating, quick dates, fast getting to know each other stage; it really is a good process to know the person not just the basics but also in a deeper level. Very classic approach hahaha para tayong nag susulatan ng letter. I appreciate your willingness to know me and also your opennes.  
+        //     <br /><br />
+        //     Sorry if this is just an electronic letter, I promise I'll put this into handwriting and give it to you when we see each other. As much as I want to send it via mail (the classic way) or send it via lalamove, I think this is the easiest and wisest way to do hahaha. I hope you'll like my handwriting here hahahaha char. 
+        //     <br /><br />
+        //     Looking forward to see you next year and meet you in person! 
+        //     <br /><br />
+        //     - Arjan
+        //     `
+        // },
+        //  {
+        //     title: "12-30-25", 
+        //     content: `
+        //         Dear Holly,<br><br>
+        //         Hello, for this part I just want to thank you for appreciating the letter and for recognizing the effort I put into this project. Once a forgotten pieces of code now has purpose. So dito ko muna ilalagay mga letters ko for you until I can give it to you personally :) or if you decide to meet up someday.<br><br>
+        //         I have no idea talaga on how to show you my effort or who I am, to be honest it is quite frustrating kasi di ko talaga alam if papadalhan ba kita ng letter or something. Yes I know we're just getting to know each other, but this is a part of who I am that I want to show you. Alam ko na game talaga dapat ito hahahaha nalagyan na ng letters and stuff for you, okay na din at least nakahanap din ako ng way to send a message to you. Ayaw ko kasi mag long message sa chat and I prefer writing the message instead. 
+        //         <br><br>
+        //         before ending this letter, I have a question if ever you are reading this. Are you still comfortable talking to me? or does it feel like a requirement to respond to my messages? 
+        //         <br><br>
+        //         Ayun lang, enjoy your day! and Thank you ulit for appreciating! 
+        //         <br><br>
+        //         <br><br>
+        //         ps: I won't add this to the letter collection hehe, too short for that to write :) 
+        //         <br><br>
+        //         <br><br>
+        //         - Arjan
+        //     `
+        // },
+        // {
+        //     title: "12-31-25", 
+        //     content: `
+        //         Dear Holly,<br><br>
+        //         It's 4 hours before new year, after hours of updates and telling you what I'm doing - you finally replied hahaha. Hey just to clarify, I'm not mad or annoyed or what - I understand that you are busy, there's just this feeling of excitement when you reply after hours of being busy. I know I talk a lot and chat a lot. I hope you'll be able to read everything, it's okay if you'll not respond to each message.
+        //         <br><br>
+        //         I don't think you've responded to what I said after your long message pa ata, but I hope you can check it out and we can talk a little about that part kasi I feel like we're starting to understand each other. The real purpose of this letter is to let you know that amidst the silence and hours it takes I'll be here.
+        //         <br><br>
+        //         Ayun lang muna hahaha I'm cooking pizzas pa and some pizza rolls eh, have to get back to check it out. Just typed this quickly kasi I just feel to write this down, sorry if I misspelled some words ah di ko na kasi checheck hahaha - just a message right out of my mind. 
+        //         <br><br>
+        //         Enjoy your New Year's eve, I hope we'll still be talking by 2026. Thank you for showing me your true side and for appreciating my efforts. Happy Birth month na din! I hope I can see you before or after your birthday :) See you soon!
+        //         <br><br>
+        //         - Arjan
+        //     `
+        // },
+        //   {
+        //     title: "01-06-25", 
+        //     content: `
+        //         Dear Holly,<br><br>
+        //         Hey, how are you? I hope you're doing fine! Just checking in on you, how's your day so far? If ever you'll read this, just message me in our chat. Appreciate you so much! Good luck with your work!
+        //         <br><br>
+        //         Just a short one for tonight kasi you're gone again, I don't know if you're okay eh. I hope you are. 
+        //         <br><br>
+        //         - Arjan
+        //     `
+        // },
         {
-            title: "12-29-25 | Letter no. 1", 
+            title: "HAPPY BIRTHDAY!", 
             content: `
-                Dear Ms. Holly,<br /><br />
-            I made this game for everyone, but I secretly made this specific
-            part just for you.<br /><br />
-            I hope you are having a great day! I hope you're enjoying this game
-            - yung kwento kasi neto was like what I told you, ayokong bumili ng
-            cards and this was supposed to be used if may get together kami ng
-            friends ko sa sem hahaha. It is nice seeing your personality through
-            this card game, somehow we're knowing each other little by little.
-            <br></br>
-            Until now I am enjoing every moment reading your messages, our short kwentuhan and sharing of experience. I know we are both busy and we take time before responding to each other but that's what makes it exciting - we're busy but still eager(?) to reply after a busy moment. 
-            <br /><br />
-            So far one thing you thaught me is Patience, in this era of fast phase dating, quick dates, fast getting to know each other stage; it really is a good process to know the person not just the basics but also in a deeper level. Very classic approach hahaha para tayong nag susulatan ng letter. I appreciate your willingness to know me and also your opennes.  
-            <br /><br />
-            Sorry if this is just an electronic letter, I promise I'll put this into handwriting and give it to you when we see each other. As much as I want to send it via mail (the classic way) or send it via lalamove, I think this is the easiest and wisest way to do hahaha. I hope you'll like my handwriting here hahahaha char. 
-            <br /><br />
-            Looking forward to see you next year and meet you in person! 
-            <br /><br />
-            - Arjan
-            `
-        },
-         {
-            title: "12-30-25", 
-            content: `
-                Dear Holly,<br><br>
-                Hello, for this part I just want to thank you for appreciating the letter and for recognizing the effort I put into this project. Once a forgotten pieces of code now has purpose. So dito ko muna ilalagay mga letters ko for you until I can give it to you personally :) or if you decide to meet up someday.<br><br>
-                I have no idea talaga on how to show you my effort or who I am, to be honest it is quite frustrating kasi di ko talaga alam if papadalhan ba kita ng letter or something. Yes I know we're just getting to know each other, but this is a part of who I am that I want to show you. Alam ko na game talaga dapat ito hahahaha nalagyan na ng letters and stuff for you, okay na din at least nakahanap din ako ng way to send a message to you. Ayaw ko kasi mag long message sa chat and I prefer writing the message instead. 
-                <br><br>
-                before ending this letter, I have a question if ever you are reading this. Are you still comfortable talking to me? or does it feel like a requirement to respond to my messages? 
-                <br><br>
-                Ayun lang, enjoy your day! and Thank you ulit for appreciating! 
-                <br><br>
-                <br><br>
-                ps: I won't add this to the letter collection hehe, too short for that to write :) 
-                <br><br>
-                <br><br>
-                - Arjan
-            `
-        },
-        {
-            title: "12-31-25", 
-            content: `
-                Dear Holly,<br><br>
-                It's 4 hours before new year, after hours of updates and telling you what I'm doing - you finally replied hahaha. Hey just to clarify, I'm not mad or annoyed or what - I understand that you are busy, there's just this feeling of excitement when you reply after hours of being busy. I know I talk a lot and chat a lot. I hope you'll be able to read everything, it's okay if you'll not respond to each message.
-                <br><br>
-                I don't think you've responded to what I said after your long message pa ata, but I hope you can check it out and we can talk a little about that part kasi I feel like we're starting to understand each other. The real purpose of this letter is to let you know that amidst the silence and hours it takes I'll be here.
-                <br><br>
-                Ayun lang muna hahaha I'm cooking pizzas pa and some pizza rolls eh, have to get back to check it out. Just typed this quickly kasi I just feel to write this down, sorry if I misspelled some words ah di ko na kasi checheck hahaha - just a message right out of my mind. 
-                <br><br>
-                Enjoy your New Year's eve, I hope we'll still be talking by 2026. Thank you for showing me your true side and for appreciating my efforts. Happy Birth month na din! I hope I can see you before or after your birthday :) See you soon!
-                <br><br>
-                - Arjan
-            `
-        },
-          {
-            title: "01-06-25", 
-            content: `
-                Dear Holly,<br><br>
-                Hey, how are you? I hope you're doing fine! Just checking in on you, how's your day so far? If ever you'll read this, just message me in our chat. Appreciate you so much! Good luck with your work!
-                <br><br>
-                Just a short one for tonight kasi you're gone again, I don't know if you're okay eh. I hope you are. 
+                Heyyy Holly Marie, <br><br>
+                
+                Happy happy birthday! Well, all I can say is - welcome to the 25 club! Offically in your mid 20s HAHAHA hey on the bright side, you get to live another year! <br><br>
+                I hope you'll reach all your goals, you prayers answered, and your dreams come true. <br><br>
+                Enjoy your day with your family, enjoy your friend's presence as well and all those who'll celebrate this special day of yours with you! <br><br>
+                See you this Saturday! your birthday cake is on me!  
                 <br><br>
                 - Arjan
             `
