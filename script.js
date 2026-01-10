@@ -2,91 +2,53 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // CONFIGURATION
     // ==========================================
-    const triggerNames = ['holly', 'hol', 'ly', 'h']; 
-    const CORRECT_PASSCODE = 'CMB'; 
+    const triggerNames = ['holly', 'hol', 'ly', 'h', 'olly','oli']; 
+    const CORRECT_PASSCODE = 'BLUE'; 
+    
+    const HOLLY_MODE_COUNT = 10; 
 
     // --- YOUR LETTERS ARCHIVE ---
     const SECRET_LETTERS = [
-        // {
-        //     title: "12-29-25 | Letter no. 1", 
-        //     content: `
-        //         Dear Ms. Holly,<br /><br />
-        //     I made this game for everyone, but I secretly made this specific
-        //     part just for you.<br /><br />
-        //     I hope you are having a great day! I hope you're enjoying this game
-        //     - yung kwento kasi neto was like what I told you, ayokong bumili ng
-        //     cards and this was supposed to be used if may get together kami ng
-        //     friends ko sa sem hahaha. It is nice seeing your personality through
-        //     this card game, somehow we're knowing each other little by little.
-        //     <br></br>
-        //     Until now I am enjoing every moment reading your messages, our short kwentuhan and sharing of experience. I know we are both busy and we take time before responding to each other but that's what makes it exciting - we're busy but still eager(?) to reply after a busy moment. 
-        //     <br /><br />
-        //     So far one thing you thaught me is Patience, in this era of fast phase dating, quick dates, fast getting to know each other stage; it really is a good process to know the person not just the basics but also in a deeper level. Very classic approach hahaha para tayong nag susulatan ng letter. I appreciate your willingness to know me and also your opennes.  
-        //     <br /><br />
-        //     Sorry if this is just an electronic letter, I promise I'll put this into handwriting and give it to you when we see each other. As much as I want to send it via mail (the classic way) or send it via lalamove, I think this is the easiest and wisest way to do hahaha. I hope you'll like my handwriting here hahahaha char. 
-        //     <br /><br />
-        //     Looking forward to see you next year and meet you in person! 
-        //     <br /><br />
-        //     - Arjan
-        //     `
-        // },
-        //  {
-        //     title: "12-30-25", 
-        //     content: `
-        //         Dear Holly,<br><br>
-        //         Hello, for this part I just want to thank you for appreciating the letter and for recognizing the effort I put into this project. Once a forgotten pieces of code now has purpose. So dito ko muna ilalagay mga letters ko for you until I can give it to you personally :) or if you decide to meet up someday.<br><br>
-        //         I have no idea talaga on how to show you my effort or who I am, to be honest it is quite frustrating kasi di ko talaga alam if papadalhan ba kita ng letter or something. Yes I know we're just getting to know each other, but this is a part of who I am that I want to show you. Alam ko na game talaga dapat ito hahahaha nalagyan na ng letters and stuff for you, okay na din at least nakahanap din ako ng way to send a message to you. Ayaw ko kasi mag long message sa chat and I prefer writing the message instead. 
-        //         <br><br>
-        //         before ending this letter, I have a question if ever you are reading this. Are you still comfortable talking to me? or does it feel like a requirement to respond to my messages? 
-        //         <br><br>
-        //         Ayun lang, enjoy your day! and Thank you ulit for appreciating! 
-        //         <br><br>
-        //         <br><br>
-        //         ps: I won't add this to the letter collection hehe, too short for that to write :) 
-        //         <br><br>
-        //         <br><br>
-        //         - Arjan
-        //     `
-        // },
-        // {
-        //     title: "12-31-25", 
-        //     content: `
-        //         Dear Holly,<br><br>
-        //         It's 4 hours before new year, after hours of updates and telling you what I'm doing - you finally replied hahaha. Hey just to clarify, I'm not mad or annoyed or what - I understand that you are busy, there's just this feeling of excitement when you reply after hours of being busy. I know I talk a lot and chat a lot. I hope you'll be able to read everything, it's okay if you'll not respond to each message.
-        //         <br><br>
-        //         I don't think you've responded to what I said after your long message pa ata, but I hope you can check it out and we can talk a little about that part kasi I feel like we're starting to understand each other. The real purpose of this letter is to let you know that amidst the silence and hours it takes I'll be here.
-        //         <br><br>
-        //         Ayun lang muna hahaha I'm cooking pizzas pa and some pizza rolls eh, have to get back to check it out. Just typed this quickly kasi I just feel to write this down, sorry if I misspelled some words ah di ko na kasi checheck hahaha - just a message right out of my mind. 
-        //         <br><br>
-        //         Enjoy your New Year's eve, I hope we'll still be talking by 2026. Thank you for showing me your true side and for appreciating my efforts. Happy Birth month na din! I hope I can see you before or after your birthday :) See you soon!
-        //         <br><br>
-        //         - Arjan
-        //     `
-        // },
-        //   {
-        //     title: "01-06-25", 
-        //     content: `
-        //         Dear Holly,<br><br>
-        //         Hey, how are you? I hope you're doing fine! Just checking in on you, how's your day so far? If ever you'll read this, just message me in our chat. Appreciate you so much! Good luck with your work!
-        //         <br><br>
-        //         Just a short one for tonight kasi you're gone again, I don't know if you're okay eh. I hope you are. 
-        //         <br><br>
-        //         - Arjan
-        //     `
-        // },
-        // {
-        //     title: "HAPPY BIRTHDAY!", 
-        //     content: `
-        //         Heyyy Holly Marie, <br><br>
-                
-        //         Happy happy birthday! Well, all I can say is - welcome to the 25 club! Offically in your mid 20s HAHAHA hey on the bright side, you get to live another year! <br><br>
-        //         I hope you'll reach all your goals, you prayers answered, and your dreams come true. <br><br>
-        //         Enjoy your day with your family, enjoy your friend's presence as well and all those who'll celebrate this special day of yours with you! <br><br>
-        //         See you this Saturday! your birthday cake is on me!  
-        //         <br><br>
-        //         - Arjan
-        //     `
-        // },
+        {
+            title: "First Note", 
+            // 1. Put the EXACT filename of your image here (inside the quotes)
+            // Example: "holly.jpg" or "us.png"
+            
+            image: "png.jpg", 
+            
+            // 2. Put the EXACT filename of your PDF here
+            // Example: "letter.pdf"
+            pdf: "toHOLLY2.pdf", 
+            
+            content: `
+                Dear Holly,<br><br>
+               Hey! This might be the last letter here! :(
+                <br><br><br><br>
+                Don't be sad, it'll be moved to a different site! Yes! A site that I'll call - The Holly Archive! Basta just wait for it! HAHAHAHA! Scroll down till the end ha!
+                <br><br><br><br>
+                Just download my letter - di yan virus wag ka mag alala!
+                <br><br><br><br>
+                Yun lang! 
+                <br><br><br><br>
+               
+                - Arjan
+            `
+        },
+    ];
+
+    // --- OBSERVATION DECK ---
+    // These will now appear in EXACT ORDER (1 to 10)
+    const OBSERVATION_DECK = [
+        "Observation 1: We wore the same color way! Black and white!",
+        "Observation 2: Your smile... so contagious!",
+        "Observation 3: Ang gaan mo kasama - you're easy to be with! ",
+        "Observation 4: Yung gulat mo nung nakita mo yung flowers!",
+        "Observation 5: Onti mo kumain (no hard feelings!)",
+        "Observation 6: Daldal mo din - much better!",
+        "Observation 7: Your Vibe... 10/10",
+        "Observation 8: You showed me that you really are interested.",
+        "Observation 9: Tama nga, ikaw palang ang nakikita kong maganda sa bulacan... don't irap - it's an honest compliment!",
+        "Observation 10: I can be who I am around you."
     ];
     // ==========================================
 
@@ -98,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const shuffleButton = document.getElementById('shuffleButton');
     const cardContainer = document.querySelector('.card-container');
     const categoryButtons = document.querySelectorAll('.cat-btn');
+    const controlsContainer = document.getElementById('controlsContainer'); 
+    const cardCounter = document.getElementById('cardCounter'); 
 
     // Favorites Elements
     const cardHeart = document.getElementById('cardHeart');
@@ -119,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const letterModal = document.getElementById('letterModal');
     const burntPaperContent = document.getElementById('burntPaperContent'); 
     const envelopeIcon = document.getElementById('envelopeIcon');
+    const openThisTooltip = document.getElementById('openThisTooltip'); 
     const securityModal = document.getElementById('securityModal');
     const securityForm = document.getElementById('securityForm');
     const secretPasscode = document.getElementById('secretPasscode');
@@ -137,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Easter Egg State
     let isVerifiedHolly = false;
+    let isHollyMode = false; 
+    let hasSeenAllCards = false; // Tracks if she finished the loop
 
     // --- 1. INTRO & PERSONALIZATION ---
     genderBtns.forEach(btn => {
@@ -172,14 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isSuspectedHolly = triggerNames.some(trigger => lowerName.includes(trigger));
 
                 if (isSuspectedHolly) {
-                    // SUSPICIOUS! Ask for CMB.
                     introModal.classList.remove('open');
                     setTimeout(() => {
                         securityModal.classList.add('open');
                         secretPasscode.focus();
                     }, 300);
                 } else {
-                    // Normal User
                     introModal.classList.remove('open');
                 }
             }
@@ -199,23 +164,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 cardNameDisplay.style.display = 'block';
                 cardNameDisplay.textContent = userData.name.charAt(0).toUpperCase() + userData.name.slice(1);
                 
-                // Unlock Envelope & Set Badge Count
-                envelopeIcon.style.display = 'inline-flex';
+                // NOTE: We do NOT unlock the envelope here yet. 
+                // It waits until the deck is finished.
                 const badge = envelopeIcon.querySelector('.notification-badge');
                 if(badge) badge.textContent = SECRET_LETTERS.length; 
                 
-                alert(`Welcome back, Ms. Holly. Check the envelope please.`);
+                // --- HOLLY MODE LOGIC ---
+                if (HOLLY_MODE_COUNT === 10) {
+                    isHollyMode = true;
+                    controlsContainer.style.display = 'none';
+                    cardCounter.style.display = 'block';
+                    cardCounter.textContent = `Card 1 of ${HOLLY_MODE_COUNT}`;
+                    
+                    // --- REVERSE ORDER (1 to 10) ---
+                    currentDeck = [...OBSERVATION_DECK].reverse();
+                    
+                    alert(`Welcome back, Ms. Holly. Mode activated.`);
+                } else {
+                    alert(`Welcome back, Ms. Holly. Check the envelope please.`);
+                }
+                // ------------------------
+
             } else {
-                alert("Incorrect location.");
+                alert("Incorrect! Anteh anuna?");
             }
         });
     }
 
-    // CANCEL BUTTON
     if(cancelSecurityBtn) {
         cancelSecurityBtn.addEventListener('click', () => {
             securityModal.classList.remove('open');
-            // Resume game as normal user
         });
     }
 
@@ -224,13 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderLetterMenu() {
         burntPaperContent.innerHTML = '';
 
-        // If only 1 letter, just show it
         if (SECRET_LETTERS.length === 1) {
             renderOneLetter(0, false); 
             return;
         }
 
-        // If multiple, show a list
         const header = document.createElement('h3');
         header.textContent = "Letters to Holly";
         header.style.marginBottom = "25px";
@@ -253,11 +229,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderOneLetter(index, showBackButton) {
         const letter = SECRET_LETTERS[index];
+        
+        // Build Image HTML if it exists
+        let imageHTML = '';
+        if(letter.image && letter.image !== "") {
+            imageHTML = `<img src="${letter.image}" class="letter-img" alt="Attached Image">`;
+        }
+
+        // Build Download Button HTML if PDF exists
+        let pdfHTML = '';
+        if(letter.pdf && letter.pdf !== "") {
+            pdfHTML = `<a href="${letter.pdf}" download class="download-btn">Download PDF</a>`;
+        }
+
         burntPaperContent.innerHTML = `
+            ${imageHTML}
             <p class="letter-text">${letter.content}</p>
             <div style="margin-top: 30px;">
+                ${pdfHTML}
                 ${showBackButton ? `<button class="back-btn" onclick="renderLetterMenu()">← Back</button>` : ''}
-                <button id="closeLetterBtn">Keep Playing</button>
+                <button id="closeLetterBtn">Close</button>
             </div>
         `;
 
@@ -272,6 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. CORE GAME LOGIC ---
     function initDeck() {
+        if (isHollyMode) return;
+
         currentLang = languageSelect.value || 'en';
         const langData = questions[currentLang];
         if (langData) {
@@ -307,19 +300,44 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleCardClick(e) {
         if (e.target.closest('#cardHeart')) return;
         if (e.target.closest('.engraved-name')) return;
+        
+        // 1. If card is open, just close it.
         if (isFlipped) {
             card.classList.remove('flipped');
             isFlipped = false;
             setTimeout(() => { card.style.boxShadow = "0 15px 35px rgba(0,0,0,0.5)"; }, 300);
             return;
         }
+
+        // 2. Check if deck is empty (Refill Logic for Infinite Loop)
         if (currentDeck.length === 0) {
-            alert(currentLang === 'en' ? "Reshuffling deck!" : "Ihahalo ulit!");
-            initDeck();
-            return;
+            if(isHollyMode) {
+                // Refill - SEQUENTIAL REVERSE
+                currentDeck = [...OBSERVATION_DECK].reverse();
+            } else {
+                // NORMAL MODE LOGIC
+                alert(currentLang === 'en' ? "Reshuffling deck!" : "Ihahalo ulit!");
+                initDeck();
+                return; 
+            }
         }
+
+        // 3. Draw Card
         let nextQuestion = currentDeck.pop();
         questionText.textContent = nextQuestion;
+
+        // --- 4. NEW: TRIGGER ENVELOPE IMMEDIATELY (ON LAST CARD) ---
+        if (isHollyMode && currentDeck.length === 0 && !hasSeenAllCards) {
+            hasSeenAllCards = true;
+            envelopeIcon.style.display = 'inline-flex';
+            if(openThisTooltip) openThisTooltip.style.display = 'block';
+        }
+
+        // 5. Update Counter (Holly Mode Only)
+        if (isHollyMode) {
+            const currentCardNum = HOLLY_MODE_COUNT - currentDeck.length;
+            cardCounter.textContent = `Card ${currentCardNum} of ${HOLLY_MODE_COUNT}`;
+        }
 
         if (savedFavorites.includes(nextQuestion)) {
             cardHeart.classList.add('active');
@@ -331,13 +349,11 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.boxShadow = `0 0 30px ${randomColor}90`;
         card.classList.add('flipped');
         isFlipped = true;
-
-        // --- AUTO-TRIGGER REMOVED ---
-        // The previous code block that opened the letter automatically
-        // has been deleted. Now she must click the envelope icon.
     }
 
     function performShuffleAnimation() {
+        if (isHollyMode) return;
+
         if (isFlipped) {
             card.classList.remove('flipped');
             isFlipped = false;
@@ -406,12 +422,14 @@ document.addEventListener('DOMContentLoaded', () => {
         favModal.classList.add('open');
     });
 
-    // Handle Envelope Click
     envelopeIcon.addEventListener('click', () => {
         renderLetterMenu(); 
         letterModal.classList.add('open');
+        
+        // Hide tooltip and badge when clicked
         const badge = envelopeIcon.querySelector('.notification-badge');
         if(badge) badge.style.display = 'none'; 
+        if(openThisTooltip) openThisTooltip.style.display = 'none';
     });
 
     closeModalBtn.addEventListener('click', () => favModal.classList.remove('open'));

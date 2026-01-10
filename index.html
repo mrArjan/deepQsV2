@@ -23,12 +23,46 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="version-watermark">v2.4.2025</div>
+    <div class="version-watermark">v2.7</div>
 
     <div class="game-container">
       <h1 class="animated-title">DeepQs</h1>
 
-      <div class="language-container">
+      <div id="cardCounter" class="card-counter" style="display: none"></div>
+
+      <div class="envelope-wrapper">
+        <button
+          class="cat-btn"
+          id="envelopeIcon"
+          style="
+            display: none;
+            border-color: #ffd700;
+            color: #ffd700;
+            position: relative;
+            padding: 10px 15px;
+          "
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            style="pointer-events: none"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span class="notification-badge">1</span>
+        </button>
+
+        <div id="openThisTooltip" class="envelope-tooltip">Open This ⬆</div>
+      </div>
+
+      <div class="language-container" id="controlsContainer">
         <select id="languageSelect">
           <option value="en">English</option>
           <option value="tl">Tagalog</option>
@@ -46,34 +80,6 @@
             style="border-color: #ff6b6b; color: #ff6b6b"
           >
             ♥ Saved
-          </button>
-
-          <button
-            class="cat-btn"
-            id="envelopeIcon"
-            style="
-              display: none;
-              border-color: #ffd700;
-              color: #ffd700;
-              position: relative;
-              padding: 10px 15px;
-            "
-          >
-            <svg
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-              style="pointer-events: none"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              ></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span class="notification-badge">1</span>
           </button>
         </div>
       </div>
@@ -159,16 +165,16 @@
       <div class="modal-content intro-content">
         <div class="intro-header">
           <h2>Security Check</h2>
-          <p>Where did we meet?</p>
+          <p>Just to know if you deserve to see this!</p>
         </div>
         <form id="securityForm">
           <div class="input-group">
-            <label>Is this Holly? Enter the initials of the app please.</label>
+            <label>What's the color of the Roses?</label>
             <input
               type="text"
               id="secretPasscode"
-              placeholder="_ _ _"
-              maxlength="3"
+              placeholder="_ _ _ _"
+              maxlength="4"
               autocomplete="off"
               style="
                 text-transform: uppercase;
@@ -177,7 +183,7 @@
               "
             />
           </div>
-          <p class="privacy-note" style="color: #ff6b6b">Hint: Coffee</p>
+          <p class="privacy-note" style="color: #ff6b6b">Hint: IYKYK</p>
 
           <div class="modal-buttons">
             <button type="submit" class="start-btn active">Unlock</button>
