@@ -74,19 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
         //         - Arjan
         //     `
         // },
-        {
-            title: "HAPPY BIRTHDAY!", 
-            content: `
-                Heyyy Holly Marie, <br><br>
+        // {
+        //     title: "HAPPY BIRTHDAY!", 
+        //     content: `
+        //         Heyyy Holly Marie, <br><br>
                 
-                Happy happy birthday! Well, all I can say is - welcome to the 25 club! Offically in your mid 20s HAHAHA hey on the bright side, you get to live another year! <br><br>
-                I hope you'll reach all your goals, you prayers answered, and your dreams come true. <br><br>
-                Enjoy your day with your family, enjoy your friend's presence as well and all those who'll celebrate this special day of yours with you! <br><br>
-                See you this Saturday! your birthday cake is on me!  
-                <br><br>
-                - Arjan
-            `
-        },
+        //         Happy happy birthday! Well, all I can say is - welcome to the 25 club! Offically in your mid 20s HAHAHA hey on the bright side, you get to live another year! <br><br>
+        //         I hope you'll reach all your goals, you prayers answered, and your dreams come true. <br><br>
+        //         Enjoy your day with your family, enjoy your friend's presence as well and all those who'll celebrate this special day of yours with you! <br><br>
+        //         See you this Saturday! your birthday cake is on me!  
+        //         <br><br>
+        //         - Arjan
+        //     `
+        // },
     ];
     // ==========================================
 
